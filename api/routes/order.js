@@ -5,6 +5,7 @@ const router = require("express").Router();
 // CREATE ORDER
 
 router.post("/", async (req, res) => {
+  console.log(req.body);
   const newOrder = new Order(req.body);
 
   try {

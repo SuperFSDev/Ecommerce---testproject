@@ -1,0 +1,44 @@
+.modalLayer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modalContainer {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  justify-content: start;
+  background-color: bisque;
+  padding: 3rem;
+}
+
+.modalContainer .contents {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.modalContainer .buttonGroup {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer .buttonGroup .orderbtn {
+  background-color: green;
+  margin-right: 10px;
+  color: white;
+}
+.modalContainer .buttonGroup .closebtn {
+  background-color: red;
+  margin-right: 10px;
+  color: white;
+}

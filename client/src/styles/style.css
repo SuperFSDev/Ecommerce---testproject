@@ -31,14 +31,15 @@ tr {
   width: 100%;
   display: flex;
 }
+
+tr:hover {
+  background-color: aqua;
+  cursor: pointer;
+}
 thead th {
   flex: 1;
   font-weight: 500;
   text-align: center;
-  background-color: #fafafa;
-}
-
-tbody tr:nth-child(even) {
   background-color: #fafafa;
 }
 

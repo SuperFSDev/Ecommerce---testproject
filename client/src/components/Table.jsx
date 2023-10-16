@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import Pagination from "./Pagenation";
 import { CheckBox } from "@material-ui/icons";
+import { DetailsModal } from "./DetailsModal";
 
 let PageSize = 10;
 
@@ -8,6 +9,7 @@ export function Table({ products }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [items, setItems] = useState(products);
   const [isAsc, setIsAsc] = useState(true);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const currentTableData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
@@ -40,6 +42,15 @@ export function Table({ products }) {
     setItems(searchedResult);
   };
 
+  const handleRowClick = (item) => {
+    console.log("selected");
+    setSelectedItem(item);
+  };
+
+  const onClose = () => {
+    setSelectedItem();
+  };
+
   return (
     <>
       <div>
@@ -66,7 +77,7 @@ export function Table({ products }) {
         </thead>
         <tbody>
           {currentTableData.map((record) => (
-            <tr key={record.id}>
+            <tr key={record.id} onClick={() => handleRowClick(record)}>
               <td>{record.title}</td>
               <td>{record.desc}</td>
               <td>{record.color}</td>
@@ -76,7 +87,6 @@ export function Table({ products }) {
           ))}
         </tbody>
       </table>
-
       <Pagination
         className="pagination-bar"
         currentPage={currentPage}
@@ -84,6 +94,9 @@ export function Table({ products }) {
         pageSize={PageSize}
         onPageChange={(page) => setCurrentPage(page)}
       />
+      {selectedItem && (
+        <DetailsModal item={selectedItem} onClose={onClose}></DetailsModal>
+      )}
     </>
   );
 }

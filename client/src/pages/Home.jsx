@@ -13,8 +13,6 @@ const Home = () => {
     const getProducts = async () => {
       try {
         const res = await axios.get(`http://localhost:4000/api/products`);
-        console.log("Products");
-        console.log(res.data);
         setProducts(res.data);
       } catch (err) {}
     };
