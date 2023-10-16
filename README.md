@@ -22,5 +22,6 @@
 ## How to run client
 
 -   cd into client directory.
+-   Run 'yarn'
 -   Run 'yarn dev --host'
 -   Navigate to http://localhost:5173/.
